@@ -270,9 +270,12 @@ if(cards[flipped_1].value == cards[flipped_2].value){
     flipped_2 = -1;
     
     //To be implemented
-    /*if(cards == 0){
-        //Win
-    }*/
+    if(cards_left == 0){
+        show_message("You Win!");
+        global.playerscore += 3;
+        room_restart();
+        
+    }
 }
 //Not a match
 else{
