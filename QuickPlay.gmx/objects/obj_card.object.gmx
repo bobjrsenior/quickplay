@@ -27,11 +27,14 @@
             <kind>1</kind>
             <string>///Variables
 value = 0;
+
 //Where in the card list (in match_driver) this card is located
 card_pos = 0;
+
 //Different image_index for each value
 image_index = 0;
 image_speed = 0;
+
 flipped = false;
 </string>
           </argument>
@@ -57,10 +60,13 @@ flipped = false;
             <kind>1</kind>
             <string>///Card Clicked
 if(!flipped){
+    //Chane sprite to it's corresponding number value
     flipped = true;
-    image_index =  value;
     image_index = value;
+    //Make the match_drivers tem_card = the index for this one
+    //Allows match_driver to reference this card
     match_driver.temp_card = card_pos;
+    //Execute match_drivers user event 0 (card flipping/comparion code)
     with(match_driver){
         event_user(0);
     }
