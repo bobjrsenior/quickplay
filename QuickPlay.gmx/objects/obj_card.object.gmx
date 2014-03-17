@@ -58,6 +58,7 @@ flipped = false;
             <string>///Card Clicked
 if(!flipped){
     flipped = true;
+    image_index =  value;
     image_index = value;
     match_driver.temp_card = card_pos;
     with(match_driver){
