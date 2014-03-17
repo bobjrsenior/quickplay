@@ -13,12 +13,17 @@
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
+  <fonts name="fonts">
+    <font>fonts\font0</font>
+  </fonts>
   <objects name="objects">
-    <object>objects\obj_card</object>
-    <object>objects\match_driver</object>
     <object>objects\bullseye</object>
     <object>objects\boundry</object>
     <object>objects\targetcounter</object>
+    <objects name="Matching">
+      <object>objects\obj_card</object>
+      <object>objects\match_driver</object>
+    </objects>
   </objects>
   <rooms name="rooms">
     <room>rooms\matching</room>
