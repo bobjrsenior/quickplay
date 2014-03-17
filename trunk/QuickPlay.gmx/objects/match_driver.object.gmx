@@ -43,6 +43,8 @@ cards_left = 40;
 //Holds all of the cards
 cards = 0;
 
+can_flip = true;
+
 </string>
           </argument>
         </arguments>
@@ -185,6 +187,8 @@ else{
     flipped_1 = -1;
     flipped_2 = -1;
 }
+
+can_flip = true;
 </string>
           </argument>
         </arguments>
@@ -223,6 +227,7 @@ else if(flipped_2 == -1){
     //Set a delay before comparing cards in the alarm[1] event
     //room_speed * .5 = .5 seconds
     alarm[0] = room_speed * .5;
+    can_flip = false;
 }
 
 </string>

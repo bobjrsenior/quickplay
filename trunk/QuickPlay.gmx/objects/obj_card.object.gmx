@@ -59,7 +59,7 @@ flipped = false;
           <argument>
             <kind>1</kind>
             <string>///Card Clicked
-if(!flipped){
+if(!flipped &amp;&amp; match_driver.can_flip){
     //Chane sprite to it's corresponding number value
     flipped = true;
     image_index = value;
