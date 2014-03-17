@@ -27,6 +27,7 @@
     </objects>
   </objects>
   <rooms name="rooms">
+    <room>rooms\Gravity_room</room>
     <room>rooms\matching</room>
     <room>rooms\Target_room</room>
   </rooms>
