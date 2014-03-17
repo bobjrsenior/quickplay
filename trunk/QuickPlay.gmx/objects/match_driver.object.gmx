@@ -38,7 +38,7 @@ flipped_2 = -1;
 temp_card = -1;
 
 //Total number of cards
-cards_left = 14;
+cards_left = 40;
 
 //Holds all of the cards
 cards = 0;
@@ -67,22 +67,36 @@ cards = 0;
 
 //Highest card value
 max_val = cards_left / 2;
+//Leftover pairs
 repeats = 0;
+
 if(max_val &gt; 10){
     repeats = max_val - 10;
     max_val = 10;
 }
 
+//Array with frequency of each values to be used 
+//ex: 4 twos left to play
 card_vals = 0;
+//Array with the value correspon ding to the frequency array
+//card_vals = 4, card_val_ind = 2 = 4 twos left to play
+card_val_ind = 0;
+
 for(e = 1; e &lt;= max_val; e ++){
     card_vals[e] = 2;
-    
+    card_val_ind[e] = e;
 }
 while(repeats &gt; 0){
     for(e = 1; e &lt;= max_val; e ++){
         card_vals[e] += 2; 
+        repeats --;
+        if(repeats == 0){
+            break;
+        }
     }
 }
+card_vals_size = 0;
+show_debug_message(""+string(card_vals));
 //irandom(x) goes 0-x inclusive
 //irandom_range(x,y) goes x-y inclusive
 
@@ -100,7 +114,14 @@ for(y_pos = 96; y_pos &lt;= 96 + 64 * (cards_left / 10); y_pos += 64){
             temp_val = irandom_range(1,max_val);
             if(card_vals[temp_val] &gt; 0){
                 card_vals[temp_val] --;
-                cards[card_index].value = temp_val;
+                cards[card_index].value = card_val_ind[temp_val];
+                if(card_vals[temp_val] == 0){
+                    for(e = temp_val; e &lt; max_val; e ++){
+                        card_vals[e] = card_vals[e+1];
+                        card_val_ind[e] = card_val_ind[e+1];
+                    }
+                    max_val --;
+                }
                 break;
             }
         }
@@ -130,23 +151,33 @@ for(y_pos = 96; y_pos &lt;= 96 + 64 * (cards_left / 10); y_pos += 64){
             <kind>1</kind>
             <string>///Card Comparisons
 
+//flipped_1 and flipped_2 is the index in cards where
+//the flipped cards are
 
+//If both cards have the same value (match)
 if(cards[flipped_1].value == cards[flipped_2].value){
+    //destroy both cards
     with(cards[flipped_1]){
         instance_destroy();
     }
     with(cards[flipped_2]){
         instance_destroy();
     }
+    //2 less cards remain
     cards_left -= 2;
+    //-1 = default value with not attached to a card
     flipped_1 = -1;
     flipped_2 = -1;
     
+    //To be implemented
     /*if(cards == 0){
         //Win
     }*/
 }
+//Not a match
 else{
+    //Make both cards not flipped and reset their sprit image
+    //to the hidden value one
     cards[flipped_1].flipped = false;
     cards[flipped_1].image_index = 0;
     cards[flipped_2].flipped = false;
@@ -178,11 +209,19 @@ else{
             <kind>1</kind>
             <string>///Testing cards
 
+
+//If no other card is currently flipped
 if(flipped_1 == -1){
+    //Make flipped_1 = the index of cards
+    //for the card that was clicked
+    //temp_card is given value in the obj_card Left Pressed event
     flipped_1 = temp_card;
 }
+//If another card is also flipped
 else if(flipped_2 == -1){
     flipped_2 = temp_card;
+    //Set a delay before comparing cards in the alarm[1] event
+    //room_speed * .5 = .5 seconds
     alarm[0] = room_speed * .5;
 }
 
