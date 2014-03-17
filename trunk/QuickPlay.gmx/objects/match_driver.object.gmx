@@ -30,7 +30,7 @@
 flipped_1 = -1;
 flipped_2 = -1;
 temp_card = -1;
-cards_left = 3 * 5;
+cards_left = 2 * 5;
 
 //Holds all of the cards
 cards = 0;
@@ -57,6 +57,27 @@ cards = 0;
             <kind>1</kind>
             <string>///Creates The Cards
 
+//Highest card value
+max_val = cards_left / 2;
+repeats = 0;
+if(max_val &gt; 10){
+    repeats = max_val - 10;
+    max_val = 10;
+}
+
+card_vals = 0;
+for(e = 1; e &lt;= max_val; e ++){
+    card_vals[e] = 2;
+    
+}
+while(repeats &gt; 0){
+    for(e = 1; e &lt;= max_val; e ++){
+        card_vals[e] += 2; 
+    }
+}
+//irandom(x) goes 0-x inclusive
+//irandom_range(x,y) goes x-y inclusive
+
 card_index = -1;
 
 for(y_pos = 96; y_pos &lt;= 96 + 64 * (cards_left / 10); y_pos += 64){
@@ -67,6 +88,14 @@ for(y_pos = 96; y_pos &lt;= 96 + 64 * (cards_left / 10); y_pos += 64){
         }
         cards[card_index] = instance_create(x_pos, y_pos, obj_card);
         cards[card_index].card_pos = card_index;
+        while(true){
+            temp_val = irandom_range(1,max_val);
+            if(card_vals[temp_val] &gt; 0){
+                card_vals[temp_val] --;
+                cards[card_index].value = temp_val;
+                break;
+            }
+        }
     }
 }
 </string>
@@ -93,7 +122,6 @@ for(y_pos = 96; y_pos &lt;= 96 + 64 * (cards_left / 10); y_pos += 64){
             <kind>1</kind>
             <string>///Testing cards
 
-show_debug_message(cards[temp_card].value);
 if(flipped_1 == -1){
     flipped_1 = temp_card;
 }
