@@ -25,7 +25,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>010000000</string>
+            <string>010101010</string>
           </argument>
           <argument>
             <kind>0</kind>
@@ -35,6 +35,20 @@
       </action>
     </event>
     <event eventtype="4" ename="boundry">
+      <action>
+        <libid>1</libid>
+        <id>113</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>1</exetype>
+        <functionname>action_reverse_xdir</functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+      </action>
       <action>
         <libid>1</libid>
         <id>114</id>
@@ -151,11 +165,11 @@
           </argument>
           <argument>
             <kind>0</kind>
-            <string>-60</string>
+            <string>-100</string>
           </argument>
           <argument>
             <kind>0</kind>
-            <string>0</string>
+            <string>10</string>
           </argument>
         </arguments>
       </action>
