@@ -9,6 +9,7 @@
     <sprite>sprites\spr_card</sprite>
     <sprite>sprites\Target_Sprite</sprite>
     <sprite>sprites\Wall</sprite>
+    <sprite>sprites\player</sprite>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
@@ -18,10 +19,11 @@
     <object>objects\bullseye</object>
     <object>objects\boundry</object>
     <object>objects\targetcounter</object>
+    <object>objects\maincharachter</object>
   </objects>
   <rooms name="rooms">
-    <room>rooms\Target_room</room>
     <room>rooms\matching</room>
+    <room>rooms\Target_room</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>
