@@ -33,6 +33,27 @@ m_height = 480;
 m_width = 640;
 
 move_speed = 1;
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Spawn Location
 
 if(dir == 1){
     x = irandom_range(5, m_width - 5);
@@ -50,6 +71,33 @@ else if(dir == 4){
     x = m_width + 8;
     y = irandom_range(5, m_height - 5);
 }
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Movement Type
+
+e = 2.718281;
+
+min_val = (10*power(e,.2 * global.playerscore))/(10+power((e^.2x)-1));
+max_val = //30
+type_val = irandom_range
 </string>
           </argument>
         </arguments>
