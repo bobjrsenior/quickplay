@@ -7,7 +7,75 @@
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
-  <events/>
+  <events>
+    <event eventtype="0" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Variables
+
+//Delete before finishing game
+global.playerscore = 3;
+
+rm_speed = room_speed;
+
+bullets_left = global.playerscore * 16;
+//pixels/second
+max_speed = 4 + floor(.25 * global.playerscore);
+//bullets/second
+max_spawn_delay =  3 + (1 * global.playerscore);
+min_spawn_delay = 3 + (.5 * global.playerscore);
+cur_delay = floor(rm_speed * random_range(min_spawn_delay, max_spawn_delay));
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="3" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Spawning
+
+cur_delay --;
+
+if(cur_delay == 0){
+    temp = instance_create(x, y, obj_dg_bullet);
+    temp.move_speed = irandom_range(1, max_speed);
+    cur_delay = floor(rm_speed * random_range(min_spawn_delay, max_spawn_delay));;
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+  </events>
   <PhysicsObject>0</PhysicsObject>
   <PhysicsObjectSensor>0</PhysicsObjectSensor>
   <PhysicsObjectShape>0</PhysicsObjectShape>
