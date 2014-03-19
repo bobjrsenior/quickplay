@@ -67,16 +67,17 @@
     <objects name="Dodging">
       <object>objects\obj_dg_bullet</object>
       <object>objects\dodging_driver</object>
+      <object>objects\obj_dg_player</object>
     </objects>
   </objects>
   <rooms name="rooms">
+    <room>rooms\rm_dodging</room>
     <room>rooms\rm_Lobby</room>
     <room>rooms\Gravity_room</room>
     <room>rooms\rm_matching</room>
     <room>rooms\Target_room</room>
     <room>rooms\rm_shootall</room>
     <room>rooms\room0</room>
-    <room>rooms\rm_dodging</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>
