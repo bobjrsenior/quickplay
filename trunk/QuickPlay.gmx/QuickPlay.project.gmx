@@ -64,14 +64,19 @@
       <object>objects\bullseye</object>
       <object>objects\targetcounter</object>
     </objects>
+    <objects name="Dodging">
+      <object>objects\obj_dg_bullet</object>
+      <object>objects\dodging_driver</object>
+    </objects>
   </objects>
   <rooms name="rooms">
-    <room>rooms\Gravity_room</room>
-    <room>rooms\matching</room>
-    <room>rooms\Target_room</room>
     <room>rooms\rm_Lobby</room>
+    <room>rooms\Gravity_room</room>
+    <room>rooms\rm_matching</room>
+    <room>rooms\Target_room</room>
     <room>rooms\rm_shootall</room>
     <room>rooms\room0</room>
+    <room>rooms\rm_dodging</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>
