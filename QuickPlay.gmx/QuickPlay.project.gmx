@@ -6,7 +6,6 @@
   <NewExtensions/>
   <sounds name="sound"/>
   <sprites name="sprites">
-    <sprite>sprites\spr_card</sprite>
     <sprite>sprites\Wall</sprite>
     <sprite>sprites\player</sprite>
     <sprites name="Game21">
@@ -24,6 +23,9 @@
     </sprites>
     <sprites name="Targets">
       <sprite>sprites\Target_Sprite</sprite>
+    </sprites>
+    <sprites name="Matching">
+      <sprite>sprites\spr_card</sprite>
     </sprites>
   </sprites>
   <backgrounds name="background">
