@@ -25,6 +25,31 @@
         <arguments>
           <argument>
             <kind>1</kind>
+            <string>///Timer Settings
+
+times = 60
+alarm[1] = room_speed;
+alarm[2] = room_speed * 60;
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
             <string>///Variables
 
 //Delete before finishing game
@@ -32,13 +57,92 @@ global.playerscore = 3;
 
 rm_speed = room_speed;
 
-bullets_left = global.playerscore * 16;
+bullets_left = global.playerscore * 24;
 //pixels/second
 max_speed = 4 + floor(.25 * global.playerscore);
 //bullets/second
 max_spawn_delay =  3 + (1 * global.playerscore);
 min_spawn_delay = 3 + (.5 * global.playerscore);
-cur_delay = floor(rm_speed * random_range(min_spawn_delay, max_spawn_delay));
+
+alarm[0] = floor(rm_speed / random_range(min_spawn_delay, max_spawn_delay));
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="2">
+      <action>
+        <libid>1</libid>
+        <id>321</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>1</exetype>
+        <functionname>action_message</functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>2</kind>
+            <string>Game over!</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="1">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Reset Alarm
+alarm[1] = room_speed;
+times --;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Spawning Bullets
+
+bullets_left --;
+
+temp = instance_create(x, y, obj_dg_bullet);
+temp.move_speed = irandom_range(1, max_speed);
+alarm[0] = floor(rm_speed / random_range(min_spawn_delay, max_spawn_delay));
+
+
 </string>
           </argument>
         </arguments>
@@ -61,15 +165,39 @@ cur_delay = floor(rm_speed * random_range(min_spawn_delay, max_spawn_delay));
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Spawning
+            <string>
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="64">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///GUI
 
-cur_delay --;
+//Score/Difficulty
+draw_text(16, 24, "Score: " +string(global.playerscore));
 
-if(cur_delay == 0){
-    temp = instance_create(x, y, obj_dg_bullet);
-    temp.move_speed = irandom_range(1, max_speed);
-    cur_delay = floor(rm_speed * random_range(min_spawn_delay, max_spawn_delay));;
-}
+//Bullets Left
+draw_text(260, 24, "Bullets Left: " +string(bullets_left));
+
+//Time Left
+draw_text(540, 24, "Time: " +string(times));
 </string>
           </argument>
         </arguments>
