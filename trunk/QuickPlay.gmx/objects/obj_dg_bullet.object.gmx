@@ -103,7 +103,7 @@ if(type_val &lt; 10){
     type = 1;
 }
 //Type 2 (wave)
-else if(type_val &lt; 25){
+else if(type_val &lt; 20){
     alarm[0] = 1;
 }
 //Type 3 (1d Pathfinding)
@@ -136,7 +136,7 @@ else{
 //Normal + 1d motion towards Player
 
 type = 3;
-alt_speed = .1 * move_speed;
+alt_speed = .2 * move_speed;
 </string>
           </argument>
         </arguments>
@@ -163,7 +163,9 @@ alt_speed = .1 * move_speed;
 
 type = 2;
 alt_speed =  .5 * move_speed;
-alt_acc = .1 * alt_speed;
+
+alt_acc = (.1 * alt_speed) * dodging_driver.speed_medium;
+show_debug_message(""+string(move_speed)+" : " +string(alt_speed) + " : " +string(alt_acc));
 </string>
           </argument>
         </arguments>
@@ -189,25 +191,25 @@ alt_acc = .1 * alt_speed;
             <string>///Normal Motion
 
 if(dir == 1){
-    y += 1;
+    y += move_speed;
     if(y &gt;= m_height + 8){
         instance_destroy()
     }
 }
 else if(dir == 2){
-    y -= 1;
+    y -= move_speed;
     if(y &lt;= -8){
         instance_destroy()
     }
 }
 else if(dir == 3){
-    x += 1;
+    x += move_speed;
     if(x &gt;= m_width + 8){
         instance_destroy()
     }
 }
 else if(dir == 4){
-    x -= 1;
+    x -= move_speed;
     if(x &lt;= -8){
         instance_destroy()
     }
