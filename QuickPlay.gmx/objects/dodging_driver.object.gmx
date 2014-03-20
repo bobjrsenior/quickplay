@@ -28,6 +28,7 @@
             <string>///Timer Settings
 
 times = 60
+//Alarm 1 changes the timer vale Alarm 2 is for game over
 alarm[1] = room_speed;
 alarm[2] = room_speed * 60;
 </string>
@@ -58,7 +59,7 @@ global.playerscore = 30;
 rm_speed = room_speed;
 
 bullets_left = global.playerscore * 24;
-//pixels/second
+//pixels/frame
 max_speed = 4 + floor(.25 * global.playerscore);
 //bullets/second
 max_spawn_delay =  3 + (1 * global.playerscore);
@@ -87,8 +88,13 @@ alarm[0] = ceil(rm_speed / random_range(min_spawn_delay, max_spawn_delay));
             <kind>1</kind>
             <string>///For Bullets
 
+//constant
 e = 2.718281;
 
+//Logarithmic function
+//Increases frequency of harder bullet paths with higher levels
+//Max value for min approaches 7 and starts at 1
+//Max value for max approches 30 and starts at 10
 min_val = (7*power(e,.2 * global.playerscore))/(7+(power(e, .2 * global.playerscore)-1));
 max_val = (30*10*power(e,.2 * global.playerscore))/(10 + 10 * (power(e, .2 * global.playerscore)-1));
 </string>
@@ -210,28 +216,6 @@ if(bullets_left == 0){
     room_restart();
 }
 </string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="3" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string></string>
           </argument>
         </arguments>
       </action>
