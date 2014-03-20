@@ -93,11 +93,77 @@ else if(dir == 4){
             <kind>1</kind>
             <string>///Movement Type
 
-e = 2.718281;
+type_val = irandom_range(dodging_driver.min_val, dodging_driver.max_val);
 
-min_val = (10*power(e,.2 * global.playerscore))/(10+power((e^.2x)-1));
-max_val = //30
-type_val = irandom_range
+type = 0;
+alt_speed = 0;
+
+//Normal
+if(type_val &lt; 10){
+    type = 1;
+}
+//Type 2 (wave)
+else if(type_val &lt; 25){
+    alarm[0] = 1;
+}
+//Type 3 (1d Pathfinding)
+else{
+    alarm[1] = 1;
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="1">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Setting Up Pathfinding Motion
+//Normal + 1d motion towards Player
+
+type = 3;
+alt_speed = .1 * move_speed;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Setting Up Wave Motion
+
+type = 2;
+alt_speed =  .5 * move_speed;
+alt_acc = .1 * alt_speed;
 </string>
           </argument>
         </arguments>
@@ -120,7 +186,7 @@ type_val = irandom_range
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Motion
+            <string>///Normal Motion
 
 if(dir == 1){
     y += 1;
@@ -144,6 +210,98 @@ else if(dir == 4){
     x -= 1;
     if(x &lt;= -8){
         instance_destroy()
+    }
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Wave Motion
+
+if(type == 2){
+    if(abs(alt_speed) == .5 * move_speed){
+        alt_acc *= -1;
+    }
+    alt_speed += alt_acc;
+    if(dir == 1){
+        x += alt_speed;
+    }
+    else if(dir == 2){
+        x -= alt_speed;
+    }
+    else if(dir == 3){
+        y += alt_speed;
+    }
+    else if(dir == 4){
+        y -= alt_speed;
+    }
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Pathfinding
+
+if(type == 3){
+    if(dir == 1 || dir == 2){
+        if(obj_dg_player.x &gt; x){
+            x += alt_speed;
+            if(alt_speed &gt; (obj_dg_player.x  - x)){
+                x = obj_dg_player.x;
+            }
+        }
+        else if(obj_dg_player.x &lt; x){
+            x -= alt_speed;
+            if(alt_speed &gt; (x - obj_dg_player.x)){
+                x = obj_dg_player.x;
+            }
+        }
+    }
+    else if(dir == 3 || dir == 4){
+        if(obj_dg_player.y &gt; y){
+            y += alt_speed;
+            if(alt_speed &gt; (obj_dg_player.y  - y)){
+                y = obj_dg_player.y;
+            }
+        }
+        else if(obj_dg_player.y &lt; y){
+            y -= alt_speed;
+            if(alt_speed &gt; (y - obj_dg_player.y)){
+                y = obj_dg_player.y;
+            }
+        }
     }
 }
 </string>

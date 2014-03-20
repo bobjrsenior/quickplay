@@ -69,6 +69,32 @@ alarm[0] = ceil(rm_speed / random_range(min_spawn_delay, max_spawn_delay));
           </argument>
         </arguments>
       </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///For Bullets
+
+e = 2.718281;
+
+min_val = (7*power(e,.2 * global.playerscore))/(7+(power(e, .2 * global.playerscore)-1));
+max_val = (30*10*power(e,.2 * global.playerscore))/(10 + 10 * (power(e, .2 * global.playerscore)-1));
+</string>
+          </argument>
+        </arguments>
+      </action>
     </event>
     <event eventtype="2" enumb="2">
       <action>
@@ -205,8 +231,7 @@ if(bullets_left == 0){
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>
-</string>
+            <string></string>
           </argument>
         </arguments>
       </action>
