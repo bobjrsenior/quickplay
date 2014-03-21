@@ -26,7 +26,7 @@
           <argument>
             <kind>1</kind>
             <string>///General Variables
-global.playerscore = 3;
+global.playerscore = 30;
 difficulty = global.playerscore;
 
 //Makes random different every time
@@ -157,30 +157,6 @@ times = 60
 alarm[1] = room_speed;
 alarm[2] = room_speed * 60;
 </string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>526</id>
-        <kind>0</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>0</useapplyto>
-        <exetype>1</exetype>
-        <functionname>action_font</functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>12</kind>
-            <font>font0</font>
-          </argument>
-          <argument>
-            <kind>4</kind>
-            <string>0</string>
           </argument>
         </arguments>
       </action>
@@ -353,57 +329,31 @@ else if(flipped_2 == -1){
     <event eventtype="8" enumb="64">
       <action>
         <libid>1</libid>
-        <id>613</id>
-        <kind>0</kind>
-        <userelative>-1</userelative>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
         <isquestion>0</isquestion>
         <useapplyto>-1</useapplyto>
-        <exetype>1</exetype>
-        <functionname>action_draw_variable</functionname>
+        <exetype>2</exetype>
+        <functionname></functionname>
         <codestring></codestring>
         <whoName>self</whoName>
         <relative>0</relative>
         <isnot>0</isnot>
         <arguments>
           <argument>
-            <kind>0</kind>
-            <string>difficulty</string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string>16</string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string>24</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>613</id>
-        <kind>0</kind>
-        <userelative>-1</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>1</exetype>
-        <functionname>action_draw_variable</functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>0</kind>
-            <string>times</string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string>580</string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string>24</string>
+            <kind>1</kind>
+            <string>///GUI
+
+//Score/Difficulty
+draw_text(16, 24, "Score: " +string(global.playerscore));
+
+//Bullets Left
+draw_text(260, 24, "Cards Left: " +string(cards_left));
+
+//Time Left
+draw_text(540, 24, "Time: " +string(times));
+</string>
           </argument>
         </arguments>
       </action>

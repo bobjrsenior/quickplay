@@ -165,7 +165,6 @@ type = 2;
 alt_speed =  .5 * move_speed;
 
 alt_acc = (.1 * alt_speed) * dodging_driver.speed_medium;
-show_debug_message(""+string(move_speed)+" : " +string(alt_speed) + " : " +string(alt_acc));
 </string>
           </argument>
         </arguments>
