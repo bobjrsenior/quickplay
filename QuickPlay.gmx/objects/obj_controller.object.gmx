@@ -297,7 +297,7 @@ ask.speed = argument2</codestring>
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (global.playerscore &lt; 3){ difficulty = 3}else{ 
+            <string>if (global.playerscore &lt; 3){ difficulty = 1}else{ 
 difficulty = round(global.playerscore/3)}
 monstern = sumup(difficulty);
 mps = monstern/60;

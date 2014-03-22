@@ -25,11 +25,11 @@
         <arguments>
           <argument>
             <kind>13</kind>
-            <string>65280</string>
+            <string>65408</string>
           </argument>
           <argument>
             <kind>0</kind>
-            <string>0.6</string>
+            <string>1</string>
           </argument>
         </arguments>
       </action>
