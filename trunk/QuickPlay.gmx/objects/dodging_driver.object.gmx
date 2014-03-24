@@ -54,7 +54,7 @@ alarm[2] = room_speed * 60;
             <string>///Variables
 
 //Delete before finishing game
-global.playerscore = 30;
+global.playerscore = 1;
 
 rm_speed = room_speed;
 speed_medium = 30 / rm_speed;
