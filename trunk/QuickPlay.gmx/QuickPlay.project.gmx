@@ -15,6 +15,8 @@
       <sprite>sprites\spr_pred</sprite>
       <sprite>sprites\spr_bound</sprite>
       <sprite>sprites\spr_btn</sprite>
+      <sprite>sprites\sprite7</sprite>
+      <sprite>sprites\spr_play</sprite>
     </sprites>
     <sprites name="Maze">
       <sprite>sprites\sprite_wall</sprite>
@@ -30,9 +32,15 @@
     <sprites name="Dodging">
       <sprite>sprites\spr_dg_player</sprite>
     </sprites>
+    <sprite>sprites\spr_Game1</sprite>
+    <sprite>sprites\spr_Game2</sprite>
+    <sprite>sprites\spr_Game3</sprite>
+    <sprite>sprites\spr_Game4</sprite>
+    <sprite>sprites\spr_Game5</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\background0</background>
+    <background>background\bkg_shootems</background>
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
@@ -57,6 +65,8 @@
       <object>objects\obj_bound</object>
       <object>objects\obj_play</object>
       <object>objects\obj_lobbyctrl</object>
+      <object>objects\obj_passtime</object>
+      <object>objects\obj_select</object>
     </objects>
     <objects name="Maze">
       <object>objects\object_wall</object>
@@ -74,9 +84,9 @@
     </objects>
   </objects>
   <rooms name="rooms">
+    <room>rooms\rm_Lobby</room>
     <room>rooms\rm_matching</room>
     <room>rooms\rm_dodging</room>
-    <room>rooms\rm_Lobby</room>
     <room>rooms\Gravity_room</room>
     <room>rooms\Target_room</room>
     <room>rooms\rm_shootall</room>
