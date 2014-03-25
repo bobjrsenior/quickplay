@@ -237,7 +237,7 @@ while(!place_empty(rnd1,rnd2)){
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>global.playerscore = 30
+            <string>global.playerscore = 3
 </string>
           </argument>
         </arguments>
