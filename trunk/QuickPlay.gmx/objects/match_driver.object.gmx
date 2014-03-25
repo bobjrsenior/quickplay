@@ -26,7 +26,6 @@
           <argument>
             <kind>1</kind>
             <string>///General Variables
-global.playerscore = 30;
 difficulty = global.playerscore;
 
 //Makes random different every time
@@ -184,17 +183,23 @@ alarm[2] = room_speed * 60;
       </action>
       <action>
         <libid>1</libid>
-        <id>223</id>
+        <id>224</id>
         <kind>0</kind>
         <userelative>0</userelative>
         <isquestion>0</isquestion>
         <useapplyto>0</useapplyto>
         <exetype>1</exetype>
-        <functionname>action_current_room</functionname>
+        <functionname>action_another_room</functionname>
         <codestring></codestring>
         <whoName>self</whoName>
         <relative>0</relative>
         <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>11</kind>
+            <room>rm_Lobby</room>
+          </argument>
+        </arguments>
       </action>
     </event>
     <event eventtype="2" enumb="1">
@@ -263,7 +268,7 @@ if(cards[flipped_1].value == cards[flipped_2].value){
     if(cards_left == 0){
         show_message("You Win!");
         global.playerscore += 3;
-        room_restart();
+        room_goto(rm_Lobby);
         
     }
 }

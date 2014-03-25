@@ -168,7 +168,7 @@ switch (global.levelselect){
     break;
     case 4: mundo = "Matching Game";
     break;
-    case 5: mundo = "Destroy Maze";
+    case 5: mundo = "Target Shooting";
 }
 </string>
           </argument>
