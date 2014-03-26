@@ -28,6 +28,7 @@
     </sprites>
     <sprites name="Matching">
       <sprite>sprites\spr_card</sprite>
+      <sprite>sprites\spr_card2</sprite>
     </sprites>
     <sprites name="Dodging">
       <sprite>sprites\spr_dg_player</sprite>

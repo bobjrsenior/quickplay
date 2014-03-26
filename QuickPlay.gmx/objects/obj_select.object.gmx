@@ -162,7 +162,7 @@ allowed = 1;
 switch (global.levelselect){
     case 1: mundo = "Zombie Survival";
     break;
-    case 2: mundo = "Shoot the Bullets";
+    case 2: mundo = "Dodge the Bullets";
     break;
     case 3: mundo = "Classic maze";
     break;
