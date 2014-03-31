@@ -86,12 +86,12 @@
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_Lobby</room>
+    <room>rooms\rm_maze</room>
+    <room>rooms\Gravity_room</room>
     <room>rooms\rm_matching</room>
     <room>rooms\rm_dodging</room>
-    <room>rooms\Gravity_room</room>
     <room>rooms\Target_room</room>
     <room>rooms\rm_shootall</room>
-    <room>rooms\rm_maze</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>
