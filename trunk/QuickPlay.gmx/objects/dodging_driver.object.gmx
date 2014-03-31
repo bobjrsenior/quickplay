@@ -120,7 +120,28 @@ max_val = (30*10*power(e,.2 * global.playerscore))/(10 + 10 * (power(e, .2 * glo
         <arguments>
           <argument>
             <kind>2</kind>
-            <string>Game over!</string>
+            <string>Game over! Score -2</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>global.playerscore -= 2;
+</string>
           </argument>
         </arguments>
       </action>
@@ -221,7 +242,7 @@ alarm[0] = ceil(rm_speed / random_range(min_spawn_delay, max_spawn_delay));
             <string>///Win Check
 
 if(bullets_left == 0){
-    show_message("You Win");
+    show_message("You Win! Score + 3");
     global.playerscore += 3;
     room_goto(rm_Lobby);
 }
