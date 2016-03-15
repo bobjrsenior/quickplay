@@ -1,0 +1,1 @@
+Play a series of minigames that you have to beat in under a minute.  The chosen mini-game is random and gets harder over time.
